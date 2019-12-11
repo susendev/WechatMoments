@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3462FA6423A1314800C44D0A /* WechatMomentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3462FA6323A1314800C44D0A /* WechatMomentViewController.swift */; };
 		349D065023A12E240047A2D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D064F23A12E240047A2D8 /* AppDelegate.swift */; };
-		349D065223A12E240047A2D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D065123A12E240047A2D8 /* ViewController.swift */; };
-		349D065523A12E240047A2D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349D065323A12E240047A2D8 /* Main.storyboard */; };
 		349D065723A12E240047A2D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349D065623A12E240047A2D8 /* Assets.xcassets */; };
 		349D065A23A12E240047A2D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349D065823A12E240047A2D8 /* LaunchScreen.storyboard */; };
 		349D066523A12E240047A2D8 /* WechatMomentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D066423A12E240047A2D8 /* WechatMomentsTests.swift */; };
@@ -39,10 +38,9 @@
 /* Begin PBXFileReference section */
 		09DAE40D51F0B93C43783593 /* Pods-WechatMoments-WechatMomentsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WechatMoments-WechatMomentsUITests.release.xcconfig"; path = "Target Support Files/Pods-WechatMoments-WechatMomentsUITests/Pods-WechatMoments-WechatMomentsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2F3FFF3189973864024E5E67 /* Pods-WechatMoments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WechatMoments.release.xcconfig"; path = "Target Support Files/Pods-WechatMoments/Pods-WechatMoments.release.xcconfig"; sourceTree = "<group>"; };
+		3462FA6323A1314800C44D0A /* WechatMomentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WechatMomentViewController.swift; sourceTree = "<group>"; };
 		349D064C23A12E240047A2D8 /* WechatMoments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WechatMoments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349D064F23A12E240047A2D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		349D065123A12E240047A2D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		349D065423A12E240047A2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		349D065623A12E240047A2D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		349D065923A12E240047A2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		349D065B23A12E240047A2D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +89,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3462FA6523A1331400C44D0A /* WechatMoments */ = {
+			isa = PBXGroup;
+			children = (
+				3462FA6923A1335B00C44D0A /* Model */,
+				3462FA6823A1334800C44D0A /* View */,
+				3462FA6723A1333600C44D0A /* ViewModel */,
+				3462FA6623A1331D00C44D0A /* Controller */,
+			);
+			path = WechatMoments;
+			sourceTree = "<group>";
+		};
+		3462FA6623A1331D00C44D0A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3462FA6323A1314800C44D0A /* WechatMomentViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3462FA6723A1333600C44D0A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3462FA6823A1334800C44D0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3462FA6923A1335B00C44D0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		349D064323A12E240047A2D8 = {
 			isa = PBXGroup;
 			children = (
@@ -117,8 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				349D064F23A12E240047A2D8 /* AppDelegate.swift */,
-				349D065123A12E240047A2D8 /* ViewController.swift */,
-				349D065323A12E240047A2D8 /* Main.storyboard */,
+				3462FA6523A1331400C44D0A /* WechatMoments */,
 				349D065623A12E240047A2D8 /* Assets.xcassets */,
 				349D065823A12E240047A2D8 /* LaunchScreen.storyboard */,
 				349D065B23A12E240047A2D8 /* Info.plist */,
@@ -279,7 +316,6 @@
 			files = (
 				349D065A23A12E240047A2D8 /* LaunchScreen.storyboard in Resources */,
 				349D065723A12E240047A2D8 /* Assets.xcassets in Resources */,
-				349D065523A12E240047A2D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				349D065223A12E240047A2D8 /* ViewController.swift in Sources */,
+				3462FA6423A1314800C44D0A /* WechatMomentViewController.swift in Sources */,
 				349D065023A12E240047A2D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,14 +463,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		349D065323A12E240047A2D8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				349D065423A12E240047A2D8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		349D065823A12E240047A2D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

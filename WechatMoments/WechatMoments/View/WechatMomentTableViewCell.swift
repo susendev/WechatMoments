@@ -49,7 +49,8 @@ class WechatMomentTableViewCell: UITableViewCell {
         lineView.backgroundColor = UIColor.hexColor("#eaeaea")
 
         senderAvatarImageView.snp.makeConstraints { (make) in
-            make.left.top.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(12)
+            make.top.equalToSuperview().offset(15)
             make.width.height.equalTo(42)
         }
         senderNameLabel.snp.makeConstraints { (make) in

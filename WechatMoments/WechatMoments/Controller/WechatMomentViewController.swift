@@ -19,6 +19,7 @@ class WechatMomentViewController: UIViewController {
     private let tableView = UITableView.init(frame: .zero, style: .plain)
     private let disposeBag = DisposeBag()
     private let viewModel = WechatMomentViewModel()
+    private var momentModels = [WechatMomentModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +30,16 @@ class WechatMomentViewController: UIViewController {
     }
     
     private func setUI() {
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(WechatMomentTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.separatorStyle = .none
         view.addSubview(tableView)
-        let statusBarHeight = UIScreen.main.bounds.height >= 812.0 ? 44 : 20
 
         tableView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(44 + statusBarHeight)
-            make.left.right.bottom.equalToSuperview()
+            make.top.left.right.bottom.equalToSuperview()
         }
 
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
@@ -53,34 +55,34 @@ class WechatMomentViewController: UIViewController {
     }
     
     private func bindData() {
-        viewModel.momentsDriver.drive(tableView.rx.items){ (tableView, row, model)  -> UITableViewCell in
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: IndexPath.init(row: row, section: 0)) as! WechatMomentTableViewCell
-            cell.model = model
-            return cell
-        }.disposed(by: disposeBag)
-        
-        viewModel.refreshFooterState.asDriver().drive(onNext: { [weak self](state) in
-            self?.tableView.mj_footer?.state = state
+        viewModel.momentsDriver.subscribe(onNext: { [weak self](models) in
+            DispatchQueue.main.async {
+                if self?.viewModel.page.value == 0 {
+                    self?.momentModels.removeAll()
+                }
+                self?.momentModels.append(contentsOf: models)
+                self?.tableView.reloadData()
+                self?.tableView.mj_header?.endRefreshing()
+                self?.tableView.mj_footer?.endRefreshing()
+                if models.count == 0 {
+                    self?.tableView.mj_footer?.endRefreshingWithNoMoreData()
+                }
+            }
         }).disposed(by: disposeBag)
-        
-        viewModel.refreshHeaderState.asDriver().drive(onNext: { [weak self](state) in
-            self?.tableView.mj_header?.state = state
-        }).disposed(by: disposeBag)
-
     }
  
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        let width = size.width
-        let height = size.height
-        var statusBarHeight = 0
-        if height > width {
-            statusBarHeight = height >= 812.0 ? 44 : 20
-        }
-        tableView.snp.remakeConstraints { (make) in
-            make.top.equalToSuperview().offset(44 + statusBarHeight)
-            make.left.right.bottom.equalToSuperview()
-        }
+}
 
+
+extension WechatMomentViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.momentModels.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WechatMomentTableViewCell
+        cell.model = self.momentModels[indexPath.row]
+        return cell
+    }
+    
 }

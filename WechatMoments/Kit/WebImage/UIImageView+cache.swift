@@ -12,7 +12,8 @@ import UIKit
 
 extension UIImageView {
     
-    func setWebImage(_ urlString: String, cornerRadius: CGFloat? = nil, default: UIImage? = nil) {
+    func setWebImage(_ urlString: String, cornerRadius: CGFloat? = nil, defaultImage: UIImage? = nil) {
+        self.image = defaultImage
         if let identifier = identifier {
             WSSImageDownloader.shared.cancel(identifier: identifier)
         }

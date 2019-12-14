@@ -12,6 +12,7 @@ class WechatMomentTableViewCell: UITableViewCell {
 
     var model: WechatMomentModel? {
         willSet {
+            senderAvatarImageView.setWebImage(newValue?.sender?.avatar ?? "", cornerRadius: 5)
             senderNameLabel.text = newValue?.sender?.nick
             senderContentLabel.text = newValue?.content
             imageViews.images = newValue?.images
@@ -38,8 +39,7 @@ class WechatMomentTableViewCell: UITableViewCell {
         contentView.addSubview(commentView)
         contentView.addSubview(lineView)
         
-        senderAvatarImageView.backgroundColor = .red
-        
+        senderAvatarImageView.roundedRect(cornerRadius: 10)
         senderNameLabel.font = UIFont.systemFont(ofSize: 16)
         senderNameLabel.textColor = UIColor.hexColor("#576d92")
 
@@ -68,7 +68,6 @@ class WechatMomentTableViewCell: UITableViewCell {
             make.top.equalTo(senderContentLabel.snp.bottom).offset(10)
             make.right.equalToSuperview().offset(-10)
         }
-        
         commentView.snp.makeConstraints { (make) in
             make.left.equalTo(senderNameLabel)
             make.top.equalTo(imageViews.snp.bottom).offset(10)
@@ -105,6 +104,8 @@ class WechatMomentImageView: UIView {
                 }
                 let value = newValue[i]
                 let imageView = imageViews[i]
+                imageView.setWebImage(value.url ?? "")
+                imageView.backgroundColor = UIColor.hexColor("#eaeaea")
                 imageView.isHidden = false
                 imageView.snp.remakeConstraints { (make) in
                     if i % 3 == 0 {
@@ -138,7 +139,6 @@ class WechatMomentImageView: UIView {
 
         for _ in 0..<9 {
             let imageView = UIImageView()
-            imageView.backgroundColor = .red
             addSubview(imageView)
             imageViews.append(imageView)
         }

@@ -1,34 +1,34 @@
 PODS:
+  - MJRefresh (3.3.1)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
   - RxRelay (5.0.1):
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
-  - Yoga (1.14.0)
-  - YogaKit (1.18.1):
-    - Yoga (~> 1.14)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - MJRefresh
   - RxCocoa
   - RxSwift
-  - YogaKit
+  - SnapKit
 
 SPEC REPOS:
   trunk:
+    - MJRefresh
     - RxCocoa
     - RxRelay
     - RxSwift
-    - Yoga
-    - YogaKit
+    - SnapKit
 
 SPEC CHECKSUMS:
+  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
-  Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
-  YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 42c7cc1360296a2f50521f999011f8e6de1c359a
+PODFILE CHECKSUM: f43f6a51ee7e88ef900fe8c42310b75184a29ca2
 
 COCOAPODS: 1.8.4

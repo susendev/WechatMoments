@@ -6,9 +6,10 @@ target 'WechatMoments' do
   use_frameworks!
 
   # Pods for WechatMoments
-  pod 'YogaKit'
+  pod 'SnapKit'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'MJRefresh'
 
   target 'WechatMomentsTests' do
     inherit! :search_paths
